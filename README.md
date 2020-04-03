@@ -1,2 +1,2 @@
 # Resume
-## website: https://fangtongxue.top/
+## web_site: https://fangtongxue.top/
