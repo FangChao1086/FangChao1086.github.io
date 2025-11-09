@@ -173,7 +173,7 @@ public:
         TrieNode* node = root;
         for (char c : word) {
             int idx = c - &#x27;a&#x27;;
-            if (!node-&gt;children[idx])
+            if (!node-&gt;children[idx]) 
                 node-&gt;children[idx] = new TrieNode();
             node = node-&gt;children[idx];
         }
