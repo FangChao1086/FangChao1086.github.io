@@ -173,11 +173,11 @@ public:
         TrieNode* node = root;
         for (char c : word) {
             int idx = c - &#x27;a&#x27;;
-            if (!node-&gt;children[idx]) 
+            if (!node-&gt;children[idx])
                 node-&gt;children[idx] = new TrieNode();
             node = node-&gt;children[idx];
         }
-        node-&gt;isEnd = true; // 标记单词结束
+        node-&gt;isEnd = true;
     }
     
     bool search(string word) {
@@ -187,7 +187,7 @@ public:
             if (!node-&gt;children[idx]) return false;
             node = node-&gt;children[idx];
         }
-        return node-&gt;isEnd; // 必须匹配完整单词
+        return node-&gt;isEnd;
     }
     
     bool startsWith(string prefix) {
@@ -197,7 +197,7 @@ public:
             if (!node-&gt;children[idx]) return false;
             node = node-&gt;children[idx];
         }
-        return true; // 前缀存在即可
+        return true;
     }
 };</pre>
                     </div>
