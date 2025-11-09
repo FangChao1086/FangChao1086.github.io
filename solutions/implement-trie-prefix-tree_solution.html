@@ -161,26 +161,20 @@
                         <pre class="code" id="code-content">class Trie {
 private:
     struct TrieNode {
-        TrieNode* children[26];
         bool isEnd;
-        TrieNode() : isEnd(false) {
-            memset(children, 0, sizeof(children));
-        }
+        vector&lt;TrieNode*&gt; children;
+        TrieNode() : isEnd(false), children(26, nullptr) {}
     };
     TrieNode* root;
-    
 public:
-    Trie() {
-        root = new TrieNode();
-    }
+    Trie() { root = new TrieNode(); }
     
     void insert(string word) {
         TrieNode* node = root;
         for (char c : word) {
             int idx = c - &#x27;a&#x27;;
-            if (!node-&gt;children[idx]) {
+            if (!node-&gt;children[idx]) 
                 node-&gt;children[idx] = new TrieNode();
-            }
             node = node-&gt;children[idx];
         }
         node-&gt;isEnd = true;
