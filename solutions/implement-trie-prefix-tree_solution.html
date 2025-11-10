@@ -161,13 +161,13 @@
                         <pre class="code" id="code-content">class Trie {
 private:
     struct TrieNode {
-        bool isEnd;
         vector&lt;TrieNode*&gt; children;
-        TrieNode() : isEnd(false), children(26, nullptr) {}
+        bool isEnd;
+        TrieNode() : children(26, nullptr), isEnd(false) {}
     };
     TrieNode* root;
 public:
-    Trie() { root = new TrieNode(); }
+    Trie() : root(new TrieNode()) {}
     
     void insert(string word) {
         TrieNode* node = root;
@@ -177,7 +177,7 @@ public:
                 node-&gt;children[idx] = new TrieNode();
             node = node-&gt;children[idx];
         }
-        node-&gt;isEnd = true;
+        node-&gt;isEnd = true; // 标记单词结束
     }
     
     bool search(string word) {
@@ -187,7 +187,7 @@ public:
             if (!node-&gt;children[idx]) return false;
             node = node-&gt;children[idx];
         }
-        return node-&gt;isEnd;
+        return node-&gt;isEnd; // 必须精确匹配单词
     }
     
     bool startsWith(string prefix) {
@@ -197,7 +197,7 @@ public:
             if (!node-&gt;children[idx]) return false;
             node = node-&gt;children[idx];
         }
-        return true;
+        return true; // 前缀存在即可
     }
 };</pre>
                     </div>
@@ -207,7 +207,7 @@ public:
                 <div class="section complexity-section">
                     <h2>复杂度分析</h2>
                     <div class="complexity">
-                        <strong>时间O(L) 空间O(26^L)</strong>
+                        <strong>时间O(L) 空间O(N*L)</strong>
                     </div>
                 </div>
             </div>
