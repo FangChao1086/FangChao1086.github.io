@@ -187,7 +187,7 @@ public:
             if (!node-&gt;children[idx]) return false;
             node = node-&gt;children[idx];
         }
-        return node-&gt;isEnd; // 必须精确匹配单词
+        return node-&gt;isEnd; // 必须匹配完整单词
     }
     
     bool startsWith(string prefix) {
